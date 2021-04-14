@@ -1,8 +1,9 @@
 /John's landuse over time
-/RasteriseLandUseDiff.model3
-/UpstreamCatchment.model3
-/data
+/data/landuse_data_all.gpkg
+/data/*.tif
 /downloads
-/landuse_data_all.gpkg
 /plan.txt
 /tmp
+*.log
+*.gpkg-shm
+*.gpkg-wal

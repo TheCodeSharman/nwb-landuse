@@ -1,0 +1,195 @@
+alum_category,code,lu_coden,landuse_category,numcat,impact,landuse_code
+1.1.0 nature conservation ,1.1.0,110,Natural,1,1,1
+1.1.1 Strict nature reserves ,1.1.1,111,Natural,1,1,1
+1.1.2 Wilderness area ,1.1.2,112,Natural,1,1,1
+1.1.3 national park ,1.1.3,113,Natural,1,1,1
+1.1.4 natural feature protection ,1.1.4,114,Natural,1,1,1
+1.1.5 Habitat/species management area ,1.1.5,115,Natural,1,1,1
+1.1.6 Protected landscape ,1.1.6,116,Natural,1,1,1
+1.1.7 Other conserved area ,1.1.7,117,Natural,1,1,1
+1.2.0 Managed resource protection ,1.2.0,120,Natural,1,1,1
+1.2.1 Biodiversity ,1.2.1,121,Natural,1,1,1
+1.2.2 Surface water supply ,1.2.2,122,Natural,1,1,1
+1.2.3 Groundwater ,1.2.3,123,Natural,1,1,1
+1.2.4 Landscape ,1.2.4,124,Natural,1,1,1
+1.2.5 Traditional indigenous uses ,1.2.5,125,Minimal use,2,1,2
+1.3.0 Other minimal use ,1.3.0,130,Minimal use,2,1,2
+1.3.1 Defence land - natural areas ,1.3.1,131,Minimal use,2,1,2
+1.3.2 Stock route ,1.3.2,132,Minimal use,2,1,2
+1.3.3 Residual native cover ,1.3.3,133,Minimal use,2,1,2
+1.3.4 Rehabilitation ,1.3.4,134,Minimal use,2,1,2
+2.1.0 Grazing native vegetation ,2.1.0,210,Minimal use,2,1,2
+2.2.0 Production native forests ,2.2.0,220,Forestry,8,2,5
+2.2.1 Wood production forestry ,2.2.1,221,Forestry,8,2,5
+2.2.2 Other forest production ,2.2.2,222,Forestry,8,2,5
+3.1.0 plantation forests ,3.1.0,310,Forestry plantation,16,2,6
+3.1.1 Hardwood plantation forestry ,3.1.1,311,Forestry plantation,16,2,6
+3.1.2 Softwood plantation forestry ,3.1.2,312,Forestry plantation,16,2,6
+3.1.3 Other forest plantation ,3.1.3,313,Forestry plantation,16,2,6
+3.1.4 Environmental forest plantation ,3.1.4,314,Forestry plantation,16,2,6
+3.2.0 Grazing modified pastures ,3.2.0,320,Intensive pastoral farming,256,4,10
+3.2.1 native/exotic pasture mosaic ,3.2.1,321,Pastoral farming,128,3,9
+3.2.2 Woody fodder plants ,3.2.2,322,Pastoral farming,128,3,9
+3.2.3 Pasture legumes ,3.2.3,323,Pastoral farming,128,3,9
+3.2.4 Pasture legume/grass mixtures ,3.2.4,324,Pastoral farming,128,3,9
+3.2.5 Sown grasses ,3.2.5,325,Pastoral farming,128,3,9
+3.3.0 Cropping ,3.3.0,330,Arable farming,32,3,7
+3.3.1 Cereals ,3.3.1,331,Arable farming,32,3,7
+3.3.2 Beverage and spice crops ,3.3.2,332,Arable farming,32,3,7
+3.3.3 Hay and silage ,3.3.3,333,Arable farming,32,3,7
+3.3.4 Oilseeds ,3.3.4,334,Arable farming,32,3,7
+3.3.5 Sugar ,3.3.5,335,Arable farming,32,3,7
+3.3.6 Cotton ,3.3.6,336,Arable farming,32,3,7
+3.3.7 Alkaloid poppies ,3.3.7,337,Arable farming,32,3,7
+3.3.8 Pulses ,3.3.8,338,Arable farming,32,3,7
+3.4.0 Perennial horticulture ,3.4.0,340,Arable farming,32,3,7
+3.4.1 Tree fruits ,3.4.1,341,Arable farming,32,3,7
+3.4.2 Olives ,3.4.2,342,Arable farming,32,3,7
+3.4.3 Tree nuts ,3.4.3,343,Arable farming,32,3,7
+3.4.4 Vine fruits ,3.4.4,344,Arable farming,32,3,7
+3.4.5 Shrub berries and fruits ,3.4.5,345,Arable farming,32,3,7
+3.4.6 Perennial flowers and bulbs ,3.4.6,346,Arable farming,32,3,7
+3.4.7 Perennial vegetables and herbs ,3.4.7,347,Arable farming,32,3,7
+3.4.8 Citrus ,3.4.8,348,Arable farming,32,3,7
+3.4.9 Grapes ,3.4.9,349,Arable farming,32,3,7
+3.5.0 Seasonal horticulture ,3.5.0,350,Arable farming,32,3,7
+3.5.1 Seasonal fruits ,3.5.1,351,Arable farming,32,3,7
+3.5.2 Seasonal flowers and bulbs ,3.5.2,352,Arable farming,32,3,7
+3.5.3 Seasonal vegetables and herbs ,3.5.3,353,Arable farming,32,3,7
+3.5.4 Seasonal vegetables and herbs ,3.5.4,354,Arable farming,32,3,7
+3.6.0 Land in transition ,3.6.0,360,Unknown,8192,0,15
+3.6.1 Degraded land ,3.6.1,361,Unknown,8192,0,15
+3.6.2 Abandoned land ,3.6.2,362,Unknown,8192,0,15
+3.6.3 Land under rehabilitation ,3.6.3,363,Unknown,8192,0,15
+3.6.4 No defined use ,3.6.4,364,Unknown,8192,0,15
+3.6.5 Abandoned perennial horticulture ,3.6.5,365,Unknown,8192,0,15
+4.1.0 Irrigated plantation forests ,4.1.0,410,Forestry plantation,16,2,6
+4.1.1 Irrigated hardwood plantation forestry ,4.1.1,411,Forestry plantation,16,2,6
+4.1.2 Irrigated softwood plantation forestry ,4.1.2,412,Forestry plantation,16,2,6
+4.1.3 Irrigated other forest plantation ,4.1.3,413,Forestry plantation,16,2,6
+4.1.4 Irrigated environmental forest plantation ,4.1.4,414,Forestry plantation,16,2,6
+4.2.0 Grazing irrigated modified pastures ,4.2.0,420,Intensive pastoral farming,256,4,10
+4.2.1 Irrigated woody fodder plants ,4.2.1,421,Pastoral farming,128,3,9
+4.2.2 Irrigated pasture legumes ,4.2.2,422,Pastoral farming,128,3,9
+4.2.3 Irrigated legume/grass mixtures ,4.2.3,423,Pastoral farming,128,3,9
+4.2.4 Irrigated sown grasses ,4.2.4,424,Pastoral farming,128,3,9
+4.3.0 Irrigated cropping ,4.3.0,430,Arable farming,32,3,7
+4.3.1 Irrigated cereals ,4.3.1,431,Arable farming,32,3,7
+4.3.2 Irrigated beverage and spice crops ,4.3.2,432,Arable farming,32,3,7
+4.3.3 Irrigated hay and silage ,4.3.3,433,Arable farming,32,3,7
+4.3.4 Irrigated oilseeds ,4.3.4,434,Arable farming,32,3,7
+4.3.5 Irrigated sugar ,4.3.5,435,Arable farming,32,3,7
+4.3.6 Irrigated cotton ,4.3.6,436,Arable farming,32,3,7
+4.3.7 Irrigated alkaloid poppies ,4.3.7,437,Arable farming,32,3,7
+4.3.8 Irrigated pulses ,4.3.8,438,Arable farming,32,3,7
+4.3.9 Irrigated rice ,4.3.9,439,Arable farming,32,3,7
+4.4.0 Irrigated perennial horticulture ,4.4.0,440,Arable farming,32,3,7
+4.4.1 Irrigated tree fruits ,4.4.1,441,Arable farming,32,3,7
+4.4.2 Irrigated olives ,4.4.2,442,Arable farming,32,3,7
+4.4.3 Irrigated tree nuts,4.4.3,443,Arable farming,32,3,7
+4.4.4 Irrigated vine fruits ,4.4.4,444,Arable farming,32,3,7
+4.4.5 Irrigated shrub berries and fruits ,4.4.5,445,Arable farming,32,3,7
+4.4.6 Irrigated perennial flowers and bulbs ,4.4.6,446,Arable farming,32,3,7
+4.4.7 Irrigated perennial vegetables and herbs ,4.4.7,447,Arable farming,32,3,7
+4.4.8 Irrigated citrus ,4.4.8,448,Arable farming,32,3,7
+4.4.9 Irrigated grapes ,4.4.9,449,Arable farming,32,3,7
+4.5.0 Irrigated seasonal horticulture ,4.5.0,450,Arable farming,32,3,7
+4.5.1 Irrigated seasonal fruits ,4.5.1,451,Arable farming,32,3,7
+4.5.2 Irrigated seasonal flowers and bulbs ,4.5.2,452,Arable farming,32,3,7
+4.5.3 Irrigated seasonal vegetables and herbs ,4.5.3,453,Arable farming,32,3,7
+4.5.4 Irrigated turf farming ,4.5.4,454,Intensive arable farming,32,3,8
+4.5.5 Irrigated turf farming ,4.5.5,455,Intensive arable farming,32,3,8
+4.6.0 Irrigated land in transition,4.6.0,460,Unknown,8192,0,15
+4.6.1 Degraded irrigated land ,4.6.1,461,Unknown,8192,0,15
+4.6.2 Abandoned irrigated land ,4.6.2,462,Unknown,8192,0,15
+4.6.3 Irrigated land under rehabilitation ,4.6.3,463,Unknown,8192,0,15
+4.6.4 No defined use - irrigation ,4.6.4,464,Unknown,8192,0,15
+4.6.5 Abandoned irrigated perennial horticulture ,4.6.5,465,Unknown,8192,0,15
+5.1.0 Intensive horticulture ,5.1.0,510,Intensive arable farming,64,4,8
+5.1.1 Production nurseries ,5.1.1,511,Intensive arable farming,64,4,8
+5.1.2 Shadehouses ,5.1.2,512,Intensive arable farming,64,4,8
+5.1.3 Glasshouses ,5.1.3,513,Intensive arable farming,64,4,8
+5.1.4 Glasshouses - hydroponic ,5.1.4,514,Intensive arable farming,64,4,8
+5.1.5 Abandoned intensive horticulture,5.1.5,515,Unknown,8192,0,15
+5.2.0 Intensive animal production ,5.2.0,520,Intensive pastoral farming,256,4,10
+5.2.1 Dairy sheds and yards ,5.2.1,521,Intensive pastoral farming,256,4,10
+5.2.2 Feedlots ,5.2.2,522,Intensive pastoral farming,256,4,10
+5.2.3 Poultry farms,5.2.3,523,Intensive pastoral farming,256,4,10
+5.2.4 Piggeries ,5.2.4,524,Intensive pastoral farming,256,4,10
+5.2.5 Aquaculture ,5.2.5,525,Intensive pastoral farming,256,4,10
+5.2.6 Horse studs ,5.2.6,526,Intensive pastoral farming,256,4,10
+5.2.7 Saleyards/stockyards ,5.2.7,527,Intensive pastoral farming,256,4,10
+5.2.8 Abandoned intensive animal production,5.2.8,528,Unknown,8192,0,15
+5.3.0 Manufacturing and industrial ,5.3.0,530,Industrial,4096,6,14
+5.3.1 General purpose factory ,5.3.1,531,Industrial,4096,6,14
+5.3.2 Food processing factory ,5.3.2,532,Industrial,4096,6,14
+5.3.3 Major industrial complex,5.3.3,533,Industrial,4096,6,14
+5.3.4 Bulk grain storage ,5.3.4,534,Industrial,4096,6,14
+5.3.5 Abattoirs ,5.3.5,535,Industrial,4096,6,14
+5.3.6 Oil refinery ,5.3.6,536,Industrial,4096,6,14
+5.3.7 Sawmill ,5.3.7,537,Industrial,4096,6,14
+5.3.8 Abandoned manufacturing and industrial ,5.3.8,538,Unknown,8192,0,15
+5.4.0 Residential and farm infrastructure ,5.4.0,540,Residential and infrastructure,1024,5,12
+5.4.1 Urban residential ,5.4.1,541,Residential and infrastructure,1024,5,12
+5.4.2 Rural residential with agriculture ,5.4.2,542,Residential and infrastructure,1024,5,12
+5.4.3 Rural residential without agriculture ,5.4.3,543,Residential and infrastructure,1024,5,12
+5.4.4 Remote communities,5.4.4,544,Residential and infrastructure,1024,5,12
+5.4.5 Farm buildings/infrastructure,5.4.5,545,Residential and infrastructure,1024,5,12
+5.5.0 Services,5.5.0,550,Residential and infrastructure,1024,5,12
+5.5.1 Commercial services,5.5.1,551,Industrial,4096,6,14
+5.5.2 Public services,5.5.2,552,Residential and infrastructure,1024,5,12
+5.5.3 Recreation and culture,5.5.3,553,Residential and infrastructure,1024,5,12
+5.5.4 Defence facilities - urban,5.5.4,554,Residential and infrastructure,1024,5,12
+5.5.5 Research facilities,5.5.5,555,Residential and infrastructure,1024,5,12
+5.6.0 Utilities,5.6.0,560,Residential and infrastructure,1024,5,12
+5.6.1 Fuel powered electricity generation,5.6.1,561,Residential and infrastructure,1024,5,12
+5.6.2 Hydro electricity generation,5.6.2,562,Residential and infrastructure,1024,5,12
+5.6.3 Wind electricity generation,5.6.3,563,Residential and infrastructure,1024,5,12
+5.6.4 Solar electricity generation,5.6.4,564,Residential and infrastructure,1024,5,12
+5.6.5 Electricity substations and transmission,5.6.5,565,Residential and infrastructure,1024,5,12
+"5.6.6 Gas treatment, storage and transmission",5.6.6,566,Residential and infrastructure,1024,5,12
+5.6.7 Water extraction and transmission,5.6.7,567,Residential and infrastructure,1024,5,12
+5.7.0 Transport and communication,5.7.0,570,Residential and infrastructure,1024,5,12
+5.7.1 Airports/aerodromes,5.7.1,571,Residential and infrastructure,1024,5,12
+5.7.2 Roads,5.7.2,572,Residential and infrastructure,1024,5,12
+5.7.3 Railways,5.7.3,573,Residential and infrastructure,1024,5,12
+5.7.4 Ports and water transport,5.7.4,574,Residential and infrastructure,1024,5,12
+5.7.5 Navigation and communication,5.7.5,575,Residential and infrastructure,1024,5,12
+5.8.0 Mining,5.8.0,580,Mining,512,6,11
+5.8.1 Mines,5.8.1,581,Mining,512,6,11
+5.8.2 Quarries,5.8.2,582,Mining,512,6,11
+5.8.3 Tailings,5.8.3,583,Mining,512,6,11
+5.8.4 Extractive industry not in use,5.8.4,584,Unknown,8192,0,15
+5.9.0 Waste treatment and disposal,5.9.0,590,Waste management,2048,6,13
+5.9.1 Effluent pond,5.9.1,591,Waste management,2048,6,13
+5.9.2 Landfill,5.9.2,592,Waste management,2048,6,13
+5.9.3 Solid garbage,5.9.3,593,Waste management,2048,6,13
+5.9.4 Incinerators,5.9.4,594,Waste management,2048,6,13
+5.9.5 Sewage/sewerage,5.9.5,595,Waste management,2048,6,13
+6.1.0 Lake,6.1.0,610,Water,4,1,4
+6.1.1 Lake - conservation,6.1.1,611,Water,4,1,4
+6.1.2 Lake - production,6.1.2,612,Water,4,1,4
+6.1.3 Lake - intensive use,6.1.3,613,Water,4,1,4
+6.1.4 Lake - saline,6.1.4,614,Water,4,1,4
+6.2.0 Reservoir/dam,6.2.0,620,Water,4,1,4
+6.2.1 Reservoir,6.2.1,621,Water,4,1,4
+6.2.2 Water storage - intensive use/farm dams,6.2.2,622,Water,4,1,4
+6.2.3 Evaporation basin,6.2.3,623,Water,4,1,4
+6.2.4 Water storage unknown (old code from 2002),6.2.4,624,Water,4,1,4
+6.3.0 River,6.3.0,630,Water,4,1,4
+6.3.1 River - conservation,6.3.1,631,Water,4,1,4
+6.3.2 River - production,6.3.2,632,Water,4,1,4
+6.3.3 River - intensive use,6.3.3,633,Water,4,1,4
+6.4.0 Channel/aqueduct,6.4.0,640,Water,4,1,4
+6.4.1 Supply channel/aqueduct,6.4.1,641,Water,4,1,4
+6.4.2 Drainage channel/aqueduct,6.4.2,642,Water,4,1,4
+6.4.3 Stormwater,6.4.3,643,Water,4,1,4
+6.5.0 Marsh/wetland,6.5.0,650,Water,4,1,4
+6.5.1 Marsh/wetland - conservation,6.5.1,651,Water,4,1,4
+6.5.2 Marsh/wetland - production,6.5.2,652,Water,4,1,4
+6.5.3 Marsh/wetland - intensive use,6.5.3,653,Water,4,1,4
+6.5.4 Marsh/wetland - saline,6.5.4,654,Water,4,1,4
+6.6.0 Estuary/coastal waters,6.6.0,660,Water,4,1,4
+6.6.1 Estuary/coastal waters - conservation Minimum level of attribution ,6.6.1,661,Water,4,1,4
+6.6.2 Estuary/coastal waters - production,6.6.2,662,Water,4,1,4
+6.6.3 Estuary/coastal waters - intensive use,6.6.3,663,Water,4,1,4
