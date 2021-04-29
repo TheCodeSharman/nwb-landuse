@@ -1,0 +1,11 @@
+<OGRVRTDataSource>
+    <OGRVRTLayer name="site_signal_score">
+        <SrcDataSource relativeToVRT="TRUE">../data/tasbugs with year.csv</SrcDataSource>
+        <SrcSQL dialect="SQLITE">SELECT "Site code", "SIGNALT Sc", "SIGNALT _1", substr(substr(Date,instr(Date,'/')+1),instr(substr(Date,instr(Date,'/')+1),'/')+1) || '-' || substr(substr(Date,instr(Date,'/')+1),0,instr(substr(Date,instr(Date,'/')+1),'/')) || '-' || substr(Date,0,instr(Date,'/')) as Date FROM "tasbugs with year"</SrcSQL>
+        <GeometryType>wkbNone</GeometryType>
+        <Field name="Site code"/>
+        <Field name="Date" type="Date"/>
+        <Field name="SIGNALT Sc"/>
+        <Field name="SIGNALT _1"/>
+     </OGRVRTLayer>
+</OGRVRTDataSource>

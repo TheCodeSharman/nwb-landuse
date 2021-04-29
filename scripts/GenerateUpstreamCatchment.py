@@ -1,21 +1,17 @@
-from qgis.PyQt.QtCore import QCoreApplication
+from qgis.PyQt.QtCore import QCoreApplication, QVariant
 from qgis.core import (QgsProcessing,
+                       QgsField,
+                       QgsFields,
+                       QgsFeature,
+                       QgsProcessingFeedback,
                        QgsFeatureSink,
                        QgsProcessingException,
                        QgsProcessingAlgorithm,
-                       QgsProcessingParameterFeatureSource,
+                       QgsProcessingParameterFeatureSink,
                        QgsProcessingParameterVectorLayer,
                        QgsProcessingParameterVectorDestination)
 from qgis import processing
 
-def findStartingCatchment(sites, rivers, context, feedback):
-    return processing.run("qgis:extractbylocation", {
-            'INPUT': rivers,
-            'PREDICATE': [1],
-            'INTERSECT': sites,
-            'OUTPUT': 'memory:'
-        }, context=context, feedback=feedback)['OUTPUT']
-        
 def findUpstreamCatchment(rivers, lowerBound, upperBound, context, feedback):
     feedback.pushInfo("lowerBound is {}, upperBound is {}".format(lowerBound,upperBound))
     return processing.run("qgis:extractbyexpression", {
@@ -24,12 +20,6 @@ def findUpstreamCatchment(rivers, lowerBound, upperBound, context, feedback):
             'OUTPUT': 'memory:'
         }, context=context, feedback=feedback)['OUTPUT']
         
-def mergeVectorLayers(list, outputLayer, context, feedback):
-    return processing.run("qgis:mergevectorlayers", {
-        'LAYERS': list,
-        'OUTPUT': outputLayer
-    }, context=context, feedback=feedback)['OUTPUT']
-
 def fixAndDissolveFeatures(input, context, feedback ):
     # run the input throuhg the fix geometries algorithm first
     fixed = processing.run("qgis:fixgeometries", {
@@ -40,8 +30,9 @@ def fixAndDissolveFeatures(input, context, feedback ):
         'INPUT': fixed,
         'OUTPUT': 'memory:'
     }, context=context, feedback=feedback)['OUTPUT']
+    
 
-class CfevUpstreamCatchment(QgsProcessingAlgorithm):
+class UpstreamCatchmentGenerator(QgsProcessingAlgorithm):
     NETWORK = 'NETWORK'
     SITES = 'SITES'
     OUTPUT = 'OUTPUT'
@@ -49,7 +40,7 @@ class CfevUpstreamCatchment(QgsProcessingAlgorithm):
         return QCoreApplication.translate('Processing', string)
 
     def createInstance(self):
-        return CfevUpstreamCatchment()
+        return UpstreamCatchmentGenerator()
 
     def name(self):
         return 'cfevupstreamcatchment'
@@ -84,7 +75,7 @@ class CfevUpstreamCatchment(QgsProcessingAlgorithm):
         )
         
         self.addParameter(
-            QgsProcessingParameterVectorDestination(
+            QgsProcessingParameterFeatureSink(
                 self.OUTPUT,
                 self.tr('Output layer')
             )
@@ -99,21 +90,40 @@ class CfevUpstreamCatchment(QgsProcessingAlgorithm):
         if rivers is None:
             raise QgsProcessingException(self.invalidSourceError(parameters, self.NETWORK))
             
-        outputLayer = self.parameterAsOutputLayer(parameters, self.OUTPUT, context)
-        if outputLayer is None:
+        fields = QgsFields()
+        fields.append( QgsField("Site code",QVariant.String) )
+        (sink, dest_id) = self.parameterAsSink(
+            parameters,
+            self.OUTPUT,
+            context,
+            fields,
+            rivers.wkbType(),
+            rivers.sourceCrs(),
+            QgsFeatureSink.RegeneratePrimaryKey
+        )
+        if sink is None:
             raise QgsProcessingException(self.invalidSinkError(parameters, self.OUTPUT))
             
-        startingCatchments = findStartingCatchment(sites, rivers, context, feedback) 
         upstreamFeatures = []
-        total = startingCatchments.featureCount()
-        for current, feature in enumerate(startingCatchments.getFeatures()):
+        total = sites.featureCount()
+        nullFeedback=QgsProcessingFeedback()
+        
+        
+        for current, feature in enumerate(sites.getFeatures()):
             feedback.pushInfo("processing feature {} of {}".format(current, total))
             feedback.setProgress( int( current * 100 / total ) )
             if feedback.isCanceled():
                 break
-            upstream = findUpstreamCatchment(rivers,feature.attribute("RSC_NUMNA"),feature.attribute("RSC_UNUMNA"), context, feedback)
-            upstream = fixAndDissolveFeatures(upstream, context, feedback )
-            upstreamFeatures.append(upstream)
-        mergeVectorLayers(upstreamFeatures, outputLayer, context, feedback )
+            upstream = findUpstreamCatchment(rivers,feature.attribute("RSC_NUMNA"),feature.attribute("RSC_UNUMNA"), context, nullFeedback)
+            upstreamDissolved = fixAndDissolveFeatures(upstream, context, nullFeedback )
+            upstreamDissolvedFeature = next(upstreamDissolved.getFeatures())
+            upstreamFeature = QgsFeature()
+            upstreamFeature.setFields(fields)
+            upstreamFeature.setAttribute("Site code", feature.attribute("Site code"))
+            upstreamFeature.setGeometry( upstreamDissolvedFeature.geometry() )
+            sink.addFeature( upstreamFeature )
+            sink.flushBuffer()
+            del upstream
+            del upstreamDissolved
 
-        return {self.OUTPUT: outputLayer}
+        return {self.OUTPUT: dest_id}

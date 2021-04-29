@@ -1,0 +1,6 @@
+layer,currency_date
+./products/landuse_data_all.gpkg|layername=LIST_LAND_USE_2002_BRS_STATEWIDE_histogram,2003-10-01
+./products/landuse_data_all.gpkg|layername=LIST_LAND_USE_2009_2010_BRS_STATEWIDE_histogram,2011-05-16
+./products/landuse_data_all.gpkg|layername=LIST_LAND_USE_2013_BRS_STATEWIDE_histogram,2015-12-21
+./products/landuse_data_all.gpkg|layername=LIST_LAND_USE_2015_BRS_STATEWIDE_histogram,2017-08-04
+./products/landuse_data_all.gpkg|layername=LIST_LAND_USE_2019_BRS_STATEWIDE_histogram,2020-08-24

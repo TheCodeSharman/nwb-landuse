@@ -1,9 +1,4 @@
-/John's landuse over time
-/data/landuse_data_all.gpkg
-/data/*.tif
-/downloads
-/plan.txt
-/tmp
-*.log
-*.gpkg-shm
-*.gpkg-wal
+data/CFEVRiverSectionCatchments.zip 
+products
+downloads
+tmp

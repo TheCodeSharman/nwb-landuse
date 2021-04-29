@@ -1,0 +1,12 @@
+<OGRVRTDataSource>
+    <OGRVRTLayer name="site_signal_score">
+        <SrcDataSource relativeToVRT="TRUE">../data/tasbugs with year.csv</SrcDataSource>
+        <SrcSQL dialect="SQLITE">SELECT "Site code","Site name","Source","Longitude","Latitude" FROM "tasbugs with year" GROUP BY "Site code"</SrcSQL>
+        <GeometryType>wkbPoint</GeometryType>
+        <LayerSRS>WGS84</LayerSRS>
+        <GeometryField encoding="PointFromColumns" y="Latitude" x="Longitude" reportSrcColumn="FALSE"/>
+        <Field name="Site code"/>
+        <Field name="Site name"/>
+        <Field name="Source"/>
+    </OGRVRTLayer>  
+</OGRVRTDataSource>
