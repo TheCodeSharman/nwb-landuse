@@ -20,7 +20,6 @@ GPKG_NAME=${PRODUCT_DIR}/landuse_data_all.gpkg
 [ ! -d $TEMP_DIR ] && mkdir $TEMP_DIR
 PREFIX_SOURCE="https://listdata.thelist.tas.gov.au/opendata/data"
 LANDUSE_LAYERS=( \
-    "LIST_LAND_USE_2002_BRS_STATEWIDE" \
     "LIST_LAND_USE_2009_2010_BRS_STATEWIDE" \
     "LIST_LAND_USE_2013_BRS_STATEWIDE" \
     "LIST_LAND_USE_2015_BRS_STATEWIDE" \
@@ -110,7 +109,6 @@ import_data() {
 
 prepare_data() {
     echo "Preparing data..."
-    prepare_layer "LIST_LAND_USE_2002_BRS_STATEWIDE" "CODE"
     prepare_layer "LIST_LAND_USE_2009_2010_BRS_STATEWIDE" "LU_CODE"
     prepare_layer "LIST_LAND_USE_2013_BRS_STATEWIDE" "LU_CODE"
     prepare_layer "LIST_LAND_USE_2015_BRS_STATEWIDE" "LU_CODE"
@@ -186,12 +184,54 @@ calculate_upstream_histogram() {
 
 }
 
+query_delta() {
+    Y1=$1
+    Y2=$2
+    cat <<EOT
+SELECT 
+	y1.site_code,
+	(julianday(y2.landuse_layer_date) - julianday(y1.landuse_layer_date)) as interval_landuse_days,
+	(julianday(y2.sample_date) - julianday(y1.sample_date)) as interval_sample_date_days,
+    (y2.signal_score- y1.signal_score) as signal_score_delta,
+    (y2.signal_score_1- y1.signal_score_1) as signal_score_1_delta,
+	(y2.HISTO_NODATA_P - y1.HISTO_NODATA_P) as HISTO_NODATA_P_DELTA,
+	(y2.HISTO_1_P - y1.HISTO_1_P) as HISTO_1_P_DELTA,
+	(y2.HISTO_2_P - y1.HISTO_2_P) as HISTO_2_P_DELTA,
+	(y2.HISTO_4_P - y1.HISTO_4_P) as HISTO_4_P_DELTA,
+	(y2.HISTO_5_P - y1.HISTO_5_P) as HISTO_5_P_DELTA,
+	(y2.HISTO_6_P - y1.HISTO_6_P) as HISTO_6_P_DELTA,
+	(y2.HISTO_7_P - y1.HISTO_7_P) as HISTO_7_P_DELTA,
+	(y2.HISTO_8_P - y1.HISTO_8_P) as HISTO_8_P_DELTA,
+	(y2.HISTO_9_P - y1.HISTO_9_P) as HISTO_9_P_DELTA,
+	(y2.HISTO_10_P - y1.HISTO_10_P) as HISTO_10_P_DELTA,
+	(y2.HISTO_11_P - y1.HISTO_11_P) as HISTO_11_P_DELTA,
+	(y2.HISTO_12_P - y1.HISTO_12_P) as HISTO_12_P_DELTA,
+	(y2.HISTO_13_P - y1.HISTO_13_P) as HISTO_13_P_DELTA,
+	(y2.HISTO_14_P - y1.HISTO_14_P) as HISTO_14_P_DELTA,
+	(y2.HISTO_15_P - y1.HISTO_15_P) as HISTO_15_P_DELTA
+FROM
+	(SELECT * FROM site_histogram WHERE strftime('%Y',landuse_layer_date) = '${Y1}') as y1
+	JOIN (SELECT * FROM site_histogram WHERE strftime('%Y',landuse_layer_date) = '${Y2}') as y2 ON y1.site_code = y2.site_code
+EOT
+}
+
+
 generate_site_to_landuse() {
     echo "Generating site to landuse layer..."
     layer="site_histogram"
     if ! layer_exists "${layer}"; then
         echo "...${layer}"
         ogr2ogr -f GPKG -update -nln "${layer}" "${GPKG_NAME}" "${VRT_DIR}/site_histogram.vrt"
+    fi
+    layer="site_histogram_delta"
+    if ! layer_exists "${layer}"; then
+        echo "...${layer}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2011" "2020")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2011" "2017")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2011" "2015")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2015" "2020")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2015" "2017")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2017" "2020")" "${GPKG_NAME}"
     fi
 }
 
