@@ -194,6 +194,8 @@ SELECT
     y1.X,
     y1.Y,
     y1.upstream_area,
+    y1.sample_date,
+    y1.landuse_layer_date,
 	(julianday(y2.landuse_layer_date) - julianday(y1.landuse_layer_date)) as interval_landuse_days,
 	(julianday(y2.sample_date) - julianday(y1.sample_date)) as interval_sample_date_days,
     (y2.signal_score- y1.signal_score) as signal_score_delta,
