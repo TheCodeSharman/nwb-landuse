@@ -190,6 +190,10 @@ query_delta() {
     cat <<EOT
 SELECT 
 	y1.site_code,
+    y1.geom,
+    y1.X,
+    y1.Y,
+    y1.upstream_area,
 	(julianday(y2.landuse_layer_date) - julianday(y1.landuse_layer_date)) as interval_landuse_days,
 	(julianday(y2.sample_date) - julianday(y1.sample_date)) as interval_sample_date_days,
     (y2.signal_score- y1.signal_score) as signal_score_delta,
@@ -226,12 +230,12 @@ generate_site_to_landuse() {
     layer="site_histogram_delta"
     if ! layer_exists "${layer}"; then
         echo "...${layer}"
-        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2011" "2020")" "${GPKG_NAME}"
-        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2011" "2017")" "${GPKG_NAME}"
-        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2011" "2015")" "${GPKG_NAME}"
-        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2015" "2020")" "${GPKG_NAME}"
-        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2015" "2017")" "${GPKG_NAME}"
-        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2017" "2020")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2012" "2021")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2012" "2018")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2012" "2014")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2014" "2021")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2014" "2018")" "${GPKG_NAME}"
+        ogr2ogr -f GPKG -update -append -nln "${layer}" "${GPKG_NAME}" -sql "$(query_delta "2018" "2021")" "${GPKG_NAME}"
     fi
 }
 

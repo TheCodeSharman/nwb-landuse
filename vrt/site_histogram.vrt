@@ -5,6 +5,9 @@
 SELECT
   site."Site code" as site_code,
   site.geom,
+  X(site.geom) as X,
+  Y(site.geom) as Y,
+  ST_Area(lhd.geom) as upstream_area,
   sd."Date" as sample_date,
   sd.currency_date as landuse_layer_date,
   sd."SIGNALT Sc" as signal_score,
@@ -25,8 +28,8 @@ SELECT
   lhd.HISTO_14_P, 
   lhd.HISTO_15_P 
 FROM 
-(SELECT sig."Site code", sig."Date", sig."SIGNALT Sc", sig."SIGNALT _1", COALESCE((SELECT MAX(currency_date) FROM landuse_layer_date WHERE currency_date &lt;= sig."Date"),(SELECT MIN(currency_date) FROM landuse_layer_date)) as currency_date 
-FROM site_signal_score sig) as sd
+(SELECT sig."Site code", sig."Date", sig."SIGNALT Sc", sig."SIGNALT _1", coalesce((SELECT MAX(currency_date) FROM landuse_layer_date WHERE currency_date &lt;= sig."Date"),(SELECT MIN(currency_date) FROM landuse_layer_date)) as currency_date 
+FROM site_signal_score sig WHERE sig."Date" > '2007-01-01') as sd
 JOIN site ON site."Site code" = sd."Site code"
 JOIN landuse_histogram_date lhd ON lhd."Site code" = sd."Site code" AND lhd.currency_date = sd.currency_date
 </SrcSQL>

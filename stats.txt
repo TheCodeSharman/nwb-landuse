@@ -1,0 +1,9 @@
+1. create a predictive model to predict delta signal score.
+2. inputs are every possible delta, the landuse deltas create from the same time difference
+3. add time interval as column - and start (or end) time
+4. catchment area
+5. longitude and latitude
+5. singal score vs signal score _1 do both
+4. have signal score versus land use percentages as a seperate data set too.
+5. fix mapping of dates so that old site samples are ignored
+6. fix mapping of dates more appropriately (not via latest date of layer)
