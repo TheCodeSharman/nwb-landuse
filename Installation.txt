@@ -1,0 +1,11 @@
+Installation
+
+0. install QGIS LTR 3.40.5-Bratislava (or latest) 
+1. brew install gdal wget
+2. sym link nwb-landuse/scripts to /Users/<username>/Library/Application Support/QGIS/QGIS3/profiles/default/processing/scripts
+3. append the line [Mac OS only] 
+        export PATH=$PATH:/Applications/QGIS-LTR.app/Contents/MacOS/bin
+   to .zshrc
+4. run process-data.sh
+
+This should download all the data setup a gpkg file with all the data output layers.

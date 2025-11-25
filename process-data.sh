@@ -43,11 +43,11 @@ unzip_data() {
     for file in ${LANDUSE_LAYERS[@]}; do
         [ ! -f "${TEMP_DIR}/$(make_layer_name $file).shp" ] && unzip -d ${TEMP_DIR} "${DOWNLOADS_DIR}/${file}.zip" -x *.gdb/* *.tab readme.txt
     done
-    [ ! -f "${TEMP_DIR}/CFEVRiverSectionCatchments.shp" ] && unzip -d ${TEMP_DIR} "${DATA_DIR}/CFEVRiverSectionCatchments.zip"
+    [ ! -f "${TEMP_DIR}/CFEVRiverSectionCatchments/CFEVRiverSectionCatchments.shp" ] && unzip -d ${TEMP_DIR} "${DATA_DIR}/CFEVRiverSectionCatchments.zip"
 }
 
 layer_exists() {
-    ogrinfo -sql "SELECT name FROM sqlite_master WHERE name = '$1'" ${GPKG_NAME} -q | grep "$1" > /dev/null
+   ogrinfo -sql "SELECT name FROM sqlite_master WHERE name = '$1'" ${GPKG_NAME} -q 2>&1 | grep "$1" > /dev/null 2>&1
 }
 
 # The data files form the LIST change their format over time and we need to map the ALUM codes to
@@ -81,13 +81,14 @@ rasterise_layer() {
 
 import_data() {
     echo "Importing shape files into geopackage..."
-    layer="CFEVRiverSectionCatchments"
+    layer="CFEVRiverSectionCatchments/CFEVRiverSectionCatchments"
     if ! layer_exists "${layer}"; then
         echo "...${layer}"
         qgis_process run "qgis:retainfields" -- INPUT="${TEMP_DIR}/${layer}.shp" FIELDS="RSC_ID;RSC_NUMNA;RSC_UNUMNA" \
             OUTPUT="ogr:dbname=${GPKG_NAME} table=${layer}" \
             >>${TEMP_DIR}/import.log 2>&1
     fi
+
     layer="site"
     if ! layer_exists "${layer}"; then
         echo "...${layer}"
