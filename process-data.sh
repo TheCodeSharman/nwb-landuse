@@ -43,7 +43,7 @@ unzip_data() {
     for file in ${LANDUSE_LAYERS[@]}; do
         [ ! -f "${TEMP_DIR}/$(make_layer_name $file).shp" ] && unzip -d ${TEMP_DIR} "${DOWNLOADS_DIR}/${file}.zip" -x *.gdb/* *.tab readme.txt
     done
-    [ ! -f "${TEMP_DIR}/CFEVRiverSectionCatchments/CFEVRiverSectionCatchments.shp" ] && unzip -d ${TEMP_DIR} "${DATA_DIR}/CFEVRiverSectionCatchments.zip"
+    [ ! -f "${TEMP_DIR}/CFEVRiverSectionCatchments.shp" ] && unzip -j -d ${TEMP_DIR} "${DATA_DIR}/CFEVRiverSectionCatchments.zip" "CFEVRiverSectionCatchments/*"
 }
 
 layer_exists() {
@@ -81,7 +81,7 @@ rasterise_layer() {
 
 import_data() {
     echo "Importing shape files into geopackage..."
-    layer="CFEVRiverSectionCatchments/CFEVRiverSectionCatchments"
+    layer="CFEVRiverSectionCatchments"
     if ! layer_exists "${layer}"; then
         echo "...${layer}"
         qgis_process run "qgis:retainfields" -- INPUT="${TEMP_DIR}/${layer}.shp" FIELDS="RSC_ID;RSC_NUMNA;RSC_UNUMNA" \
