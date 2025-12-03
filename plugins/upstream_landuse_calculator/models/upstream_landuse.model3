@@ -1,6 +1,46 @@
 <!DOCTYPE model>
 <Option type="Map">
   <Option type="Map" name="children">
+    <Option type="Map" name="UpstreamLanduseProvider:alumcodelevelalgorithm_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="UpstreamLanduseProvider:alumcodelevelalgorithm" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="569.3333333333333" name="component_pos_x"/>
+        <Option type="double" value="452.3333333333333" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Alum Code Level Extraction" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="677.3333333333333" name="component_pos_x"/>
+      <Option type="double" value="565.3333333333333" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option name="dependencies"/>
+      <Option type="QString" value="UpstreamLanduseProvider:alumcodelevelalgorithm_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="ALUM_CODE_LEVEL">
+          <Option type="Map">
+            <Option type="QString" value="alum_code_level" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT_RASTER">
+          <Option type="Map">
+            <Option type="QString" value="landuse_raster" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
     <Option type="Map" name="UpstreamLanduseProvider:cfevupstreamcatchment_1">
       <Option type="bool" value="true" name="active"/>
       <Option name="alg_config"/>
@@ -18,8 +58,8 @@
       </Option>
       <Option type="QString" value="Extract Upstream Catchment" name="component_description"/>
       <Option type="double" value="60.66666666666669" name="component_height"/>
-      <Option type="double" value="723.3333333333334" name="component_pos_x"/>
-      <Option type="double" value="287.3333333333333" name="component_pos_y"/>
+      <Option type="double" value="928.6666666666667" name="component_pos_x"/>
+      <Option type="double" value="310" name="component_pos_y"/>
       <Option type="double" value="252" name="component_width"/>
       <Option name="dependencies"/>
       <Option type="QString" value="UpstreamLanduseProvider:cfevupstreamcatchment_1" name="id"/>
@@ -29,8 +69,9 @@
       <Option type="Map" name="params">
         <Option type="List" name="NETWORK">
           <Option type="Map">
-            <Option type="QString" value="RiverNetwork" name="parameter_name"/>
-            <Option type="int" value="0" name="source"/>
+            <Option type="QString" value="native:createspatialindex_1" name="child_id"/>
+            <Option type="QString" value="OUTPUT" name="output_name"/>
+            <Option type="int" value="1" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="SITES">
@@ -43,6 +84,81 @@
         <Option type="List" name="SITE_CODE_FIELD">
           <Option type="Map">
             <Option type="QString" value="site_code_field" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="UpstreamLanduseProvider:reprojecttomatch_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="UpstreamLanduseProvider:reprojecttomatch" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="522.6666666666666" name="component_pos_x"/>
+        <Option type="double" value="393.66666666666663" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Reproject Vector to Match Raster CRS" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="1082.6666666666665" name="component_pos_x"/>
+      <Option type="double" value="447.9999999999999" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option name="dependencies"/>
+      <Option type="QString" value="UpstreamLanduseProvider:reprojecttomatch_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="LAYER_MATCH">
+          <Option type="Map">
+            <Option type="QString" value="landuse_raster" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="LAYER_SOURCE">
+          <Option type="Map">
+            <Option type="QString" value="UpstreamLanduseProvider:cfevupstreamcatchment_1" name="child_id"/>
+            <Option type="QString" value="OUTPUT" name="output_name"/>
+            <Option type="int" value="1" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="native:createspatialindex_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="native:createspatialindex" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1033.3333333333333" name="component_pos_x"/>
+        <Option type="double" value="8.333333333333329" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Create spatial index" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="492" name="component_pos_x"/>
+      <Option type="double" value="41.33333333333333" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option name="dependencies"/>
+      <Option type="QString" value="native:createspatialindex_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" value="RiverNetwork" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
@@ -65,8 +181,8 @@
       </Option>
       <Option type="QString" value="Join attributes by location" name="component_description"/>
       <Option type="double" value="43.33333333333335" name="component_height"/>
-      <Option type="double" value="559.9999999999999" name="component_pos_x"/>
-      <Option type="double" value="97.33333333333329" name="component_pos_y"/>
+      <Option type="double" value="778.6666666666665" name="component_pos_x"/>
+      <Option type="double" value="118.6666666666666" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
       <Option name="dependencies"/>
       <Option type="QString" value="native:joinattributesbylocation_1" name="id"/>
@@ -88,8 +204,9 @@
         </Option>
         <Option type="List" name="JOIN">
           <Option type="Map">
-            <Option type="QString" value="RiverNetwork" name="parameter_name"/>
-            <Option type="int" value="0" name="source"/>
+            <Option type="QString" value="native:createspatialindex_1" name="child_id"/>
+            <Option type="QString" value="OUTPUT" name="output_name"/>
+            <Option type="int" value="1" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="JOIN_FIELDS">
@@ -140,8 +257,8 @@
       </Option>
       <Option type="QString" value="Zonal histogram" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
-      <Option type="double" value="835.3333333333336" name="component_pos_x"/>
-      <Option type="double" value="455.33333333333337" name="component_pos_y"/>
+      <Option type="double" value="1215.3333333333335" name="component_pos_x"/>
+      <Option type="double" value="595.3333333333335" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
       <Option name="dependencies"/>
       <Option type="QString" value="native:zonalhistogram_1" name="id"/>
@@ -161,8 +278,8 @@
           </Option>
           <Option type="QString" value="Landuse Histogram" name="component_description"/>
           <Option type="double" value="30" name="component_height"/>
-          <Option type="double" value="1111.3333333333335" name="component_pos_x"/>
-          <Option type="double" value="561.6666666666666" name="component_pos_y"/>
+          <Option type="double" value="1332.666666666667" name="component_pos_x"/>
+          <Option type="double" value="781.6666666666667" name="component_pos_y"/>
           <Option type="double" value="200" name="component_width"/>
           <Option type="invalid" name="default_value"/>
           <Option type="bool" value="false" name="mandatory"/>
@@ -183,14 +300,15 @@
         </Option>
         <Option type="List" name="INPUT_RASTER">
           <Option type="Map">
-            <Option type="QString" value="landuse_raster" name="parameter_name"/>
-            <Option type="int" value="0" name="source"/>
+            <Option type="QString" value="UpstreamLanduseProvider:alumcodelevelalgorithm_1" name="child_id"/>
+            <Option type="QString" value="OUTPUT_RASTER" name="output_name"/>
+            <Option type="int" value="1" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="INPUT_VECTOR">
           <Option type="Map">
-            <Option type="QString" value="UpstreamLanduseProvider:cfevupstreamcatchment_1" name="child_id"/>
-            <Option type="QString" value="OUTPUT" name="output_name"/>
+            <Option type="QString" value="UpstreamLanduseProvider:reprojecttomatch_1" name="child_id"/>
+            <Option type="QString" value="OUTPUT_VECTOR" name="output_name"/>
             <Option type="int" value="1" name="source"/>
           </Option>
         </Option>
@@ -238,6 +356,23 @@
       <Option name="metadata"/>
       <Option type="QString" value="Sites" name="name"/>
       <Option type="QString" value="vector" name="parameter_type"/>
+    </Option>
+    <Option type="Map" name="alum_code_level">
+      <Option type="bool" value="false" name="allow_multiple"/>
+      <Option name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="ALUM Code Level" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="alum_code_level" name="name"/>
+      <Option type="StringList" name="options">
+        <Option type="QString" value="Don't process"/>
+        <Option type="QString" value="Primary"/>
+        <Option type="QString" value="Secondary"/>
+      </Option>
+      <Option type="QString" value="enum" name="parameter_type"/>
+      <Option type="bool" value="false" name="uses_static_strings"/>
     </Option>
     <Option type="Map" name="landuse_raster">
       <Option type="invalid" name="default"/>
@@ -297,9 +432,9 @@
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
       <Option type="QString" value="RiverNetwork" name="component_description"/>
-      <Option type="double" value="42" name="component_height"/>
+      <Option type="double" value="76.66666666666666" name="component_height"/>
       <Option type="double" value="173" name="component_pos_x"/>
-      <Option type="double" value="66" name="component_pos_y"/>
+      <Option type="double" value="48.66666666666666" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
       <Option type="QString" value="RiverNetwork" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
@@ -326,6 +461,27 @@
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
+    <Option type="Map" name="alum_code_level">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="460" name="component_pos_x"/>
+        <Option type="double" value="363" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="alum_code_level" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="250.66666666666666" name="component_pos_x"/>
+      <Option type="double" value="498.66666666666663" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="alum_code_level" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
     <Option type="Map" name="landuse_raster">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
@@ -340,8 +496,8 @@
       </Option>
       <Option type="QString" value="landuse_raster" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
-      <Option type="double" value="172.33333333333326" name="component_pos_x"/>
-      <Option type="double" value="308.00000000000006" name="component_pos_y"/>
+      <Option type="double" value="184.33333333333326" name="component_pos_x"/>
+      <Option type="double" value="418.6666666666667" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
       <Option type="QString" value="landuse_raster" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
@@ -361,8 +517,8 @@
       </Option>
       <Option type="QString" value="site_code_field" name="component_description"/>
       <Option type="double" value="50.00000000000005" name="component_height"/>
-      <Option type="double" value="217.6666666666667" name="component_pos_x"/>
-      <Option type="double" value="212.66666666666669" name="component_pos_y"/>
+      <Option type="double" value="201.6666666666667" name="component_pos_x"/>
+      <Option type="double" value="296.66666666666663" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
       <Option type="QString" value="site_code_field" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>

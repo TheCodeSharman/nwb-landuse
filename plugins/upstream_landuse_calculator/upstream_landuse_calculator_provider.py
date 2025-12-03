@@ -32,8 +32,10 @@ __revision__ = '$Format:%H$'
 import os
 
 from qgis.core import QgsProcessingProvider, QgsProcessingModelAlgorithm
-from .upstream_catchment_algorithm import UpstreamCatchmentAlgorithm
 
+from .alum_code_level_algorithm import AlumCodeLevelAlgorithm
+from .upstream_catchment_algorithm import UpstreamCatchmentAlgorithm
+from .reproject_to_match_algorithm import ReprojectToMatchAlgorithm
 
 class UpstreamLanduseCalculatorProvider(QgsProcessingProvider):
 
@@ -61,6 +63,8 @@ class UpstreamLanduseCalculatorProvider(QgsProcessingProvider):
         Loads all algorithms belonging to this provider.
         """
         self.addAlgorithm(UpstreamCatchmentAlgorithm())
+        self.addAlgorithm(ReprojectToMatchAlgorithm())
+        self.addAlgorithm(AlumCodeLevelAlgorithm())
         self.loadModel('upstream_landuse.model3')
 
     def id(self):
