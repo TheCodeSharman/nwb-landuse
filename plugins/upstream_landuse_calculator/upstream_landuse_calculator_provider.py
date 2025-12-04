@@ -31,11 +31,13 @@ __copyright__ = '(C) 2025 by The Code Sharman'
 __revision__ = '$Format:%H$'
 import os
 
+
 from qgis.core import QgsProcessingProvider, QgsProcessingModelAlgorithm
 
 from .alum_code_level_algorithm import AlumCodeLevelAlgorithm
 from .upstream_catchment_algorithm import UpstreamCatchmentAlgorithm
 from .reproject_to_match_algorithm import ReprojectToMatchAlgorithm
+from .histogram_count_to_hectares_algorithm import HistogramCountToHectaresAlgorithm
 
 class UpstreamLanduseCalculatorProvider(QgsProcessingProvider):
 
@@ -65,6 +67,7 @@ class UpstreamLanduseCalculatorProvider(QgsProcessingProvider):
         self.addAlgorithm(UpstreamCatchmentAlgorithm())
         self.addAlgorithm(ReprojectToMatchAlgorithm())
         self.addAlgorithm(AlumCodeLevelAlgorithm())
+        self.addAlgorithm(HistogramCountToHectaresAlgorithm())
         self.loadModel('upstream_landuse.model3')
 
     def id(self):

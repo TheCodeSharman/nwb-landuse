@@ -89,5 +89,5 @@ class AlumCodeLevelAlgorithm(QgsProcessingAlgorithm):
             is_child_algorithm=True
         )['OUTPUT']
     
-        feedback.pushInfo(f"✅ Native rounding complete: {decimals} decimal places (Base=10)")
+        feedback.pushInfo(f"ALUM rounding complete: {decimals} decimal places (Base=10)")
         return {self.OUTPUT_RASTER: rounded_raster}
