@@ -118,7 +118,7 @@ class HistogramCountToHectaresAlgorithm(QgsProcessingAlgorithm):
 
             attrs = feature.attributes()
             for field in histoFields:
-                value = (feature[field.name()]*cellArea)
+                value = (feature[field.name()]*cellArea)/10000.0  # convert m² to hectares
                 attrs.append(value)
                 
             feature.setAttributes(attrs)
